@@ -21,13 +21,12 @@ export default function AIBrief({ onApply }: Props) {
     setResult(null);
 
     try {
-      const res = await fetch('https://api.anthropic.com/v1/messages', {
+      const res = await fetch('/api/anthropic/v1/messages', {
         method: 'POST',
         headers: {
           'x-api-key': apiKey,
           'anthropic-version': '2023-06-01',
           'content-type': 'application/json',
-          'anthropic-dangerous-direct-browser-calls': 'true',
         },
         body: JSON.stringify({
           model: 'claude-sonnet-4-6',
